@@ -1,7 +1,9 @@
 use <leftright.scad>
 
 //
-// The following does not work: why, I don't know.
+// The following does not work:
+// according to http://forum.openscad.org/Operator-problem-tp25984p25989.html
+// "this is currently impossible": only one child can be passed up
 //
 // module Combs2( apart=5, step=10, insert=20, height=5, play=0.5, max=100 ) {
 //     LeftRight( step=step, insert=insert, height=height, play=play, max=max ) {
