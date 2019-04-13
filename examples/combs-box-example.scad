@@ -1,4 +1,4 @@
-use <../cuts/comb.scad>
+use <../cuts2/comb.scad>
 
 module MyPart() {
     translate( [ -50, 0, 0 ] ) {
@@ -6,6 +6,6 @@ module MyPart() {
     }
 }
 
-Combs() {
+Comb() { //  y=[ 20, 60, 90, 120 ] ) {
     MyPart();
 }
