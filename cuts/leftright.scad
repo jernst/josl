@@ -43,3 +43,22 @@ module Left( step=10, insert=20, height=5, play=0.5, max=100 ) {
         };
     };
 };
+
+module LeftRight( apart=5, step=10, insert=20, height=5, play=0.5, max=100 ) {
+    translate( [ apart, 0, 0 ] )
+    Right( step=step, insert=insert, height=height, play=play, max=max ) {
+        // According to this thread:
+        // http://forum.openscad.org/Operator-problem-tp25984p25989.html
+        // this works, but only if the children are passed in separately
+        children(0);
+        children(1);
+        children(2);
+    }
+
+    translate( [ -apart, 0, 0 ] )
+    Left( step=step, insert=insert, height=height, play=play, max=max ) {
+        children(0);
+        children(1);
+        children(2);
+    }
+};
