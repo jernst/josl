@@ -1,4 +1,4 @@
-use <../cuts/zigzag.scad>
+use <../cuts2/zigzag.scad>
 
 module MyPart() {
     translate( [ -50, 0, 0 ] ) {
