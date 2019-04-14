@@ -1,64 +1,56 @@
-module Right( step=10, insert=20, height=5, play=0.5, max=100 ) {
-    union() {
-        difference() {
-            // positive quadrant of all axes only
-            intersection() {
-                children(2);
-                cube( [ max, max, max ] );
-            };
-            for( i=[step/2:2*step:max-step-step/2] ) {
-                translate( [ 0, i-play, 0 ] ) {
-                    children(0);
-                };
-            };
-        };
-        for( i=[step+step/2:2*step:max-step-step/2] ) {
-            translate( [ -insert+play, i+play, 0 ] ) {
-                children(1);
-            };
-        };
+module LeftRight( apart, minX, maxX, minY, maxY, minZ, maxZ, y, play ) {
+    yy = len(y) == 0 ? [ minY : ( maxY - minY ) / 10 : maxY ] : y;
+
+    translate( [ apart/2, 0, 0 ] )
+    Right( minX=minX, maxX=maxX, minY=minY, maxY=maxY, minZ=minZ, maxZ=maxZ, y=yy, play=play ) {
+        children(0);
+        children(1);
+    };
+
+    translate( [ -apart/2, 0, 0 ] )
+    Left( minX=minX, maxX=maxX, minY=minY, maxY=maxY, minZ=minZ, maxZ=maxZ, y=yy, play=play ) {
+        children(0);
+        children(1);
     };
 };
 
-module Left( step=10, insert=20, height=5, play=0.5, max=100 ) {
-    union() {
+module Right( minX, maxX, minY, maxY, minZ, maxZ, y, play ) {
+    difference() {
+        intersection() {
+            children(0);
+            translate( [ 0, minY, minZ ] ) {
+                cube( [ maxX, maxY - minY, maxZ - minZ ] );
+            }
+        };
+
+        for( yy=y ) {
+            translate( [ 0, yy, minZ ] ) {
+                minkowski() {
+                    linear_extrude( height = maxZ - minZ ) {
+                        children(1);
+                    };
+                    sphere( r=play );
+                }
+            }
+        }
+    }
+}
+
+module Left( minX, maxX, minY, maxY, minZ, maxZ, y, play ) {
+    difference() {
+        children(0);
         difference() {
-            // negative x, positive y and z quadrant only
-            intersection() {
-                children(2);
-                translate( [ -max, 0, 0 ] ) {
-                    cube( [ max, max, max ] );
-                };
+            translate( [ 0, minY, minZ ] ) {
+                cube( [ maxX, maxY - minY, maxZ - minZ ] );
             };
-            for( i=[step+step/2:2*step:max-step-step/2] ) {
-                translate( [ -insert-play, i-play, 0 ] ) {
-                    children(0);
-                };
-            };
-        };
-        for( i=[step/2:2*step:max-step-step/2] ) {
-            translate( [ 0, i+play, 0 ] ) {
-                children(1);
-            };
-        };
-    };
-};
 
-module LeftRight( apart=5, step=10, insert=20, height=5, play=0.5, max=100 ) {
-    translate( [ apart, 0, 0 ] )
-    Right( step=step, insert=insert, height=height, play=play, max=max ) {
-        // According to this thread:
-        // http://forum.openscad.org/Operator-problem-tp25984p25989.html
-        // this works, but only if the children are passed in separately
-        children(0);
-        children(1);
-        children(2);
+            for( yy=y ) {
+                translate( [ 0, yy, minZ ] ) {
+                    linear_extrude( height = maxZ - minZ ) {
+                        children(1);
+                    }
+                }
+            }
+        }
     }
-
-    translate( [ -apart, 0, 0 ] )
-    Left( step=step, insert=insert, height=height, play=play, max=max ) {
-        children(0);
-        children(1);
-        children(2);
-    }
-};
+}

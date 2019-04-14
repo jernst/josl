@@ -1,45 +1,22 @@
+//
+// Cuts a zigzag line (a bunch of equilateral triangles in a line).
+//
+// parameters:
+// zig: the height of the triangle (x direction)
+// zag: the length of the base of the triangle (y direction)
+//
+
 use <leftright.scad>
 
-module ZigZag( apart=5, step=10, insert=20, height=5, ratio=0.4, play=0.5, max=100 ) {
-    translate( [ apart, 0, 0 ] )
-    Right( step=step, insert=insert, height=height, play=play, max=max ) {
-        linear_extrude( height=height ) {
-            polygon( points=[
-                    [ 0, 0 ],
-                    [ insert+play, (step+2*play)*ratio ],
-                    [ insert+play, (step+2*play)*(1-ratio) ],
-                    [ 0, step+2*play ]
-            ] );
-        }
-        linear_extrude( height=height ) {
-            polygon( points=[
-                    [ insert-play, 0 ],
-                    [ 0, (step-2*play)*ratio ],
-                    [ 0, (step-2*play)*(1-ratio) ],
-                    [ insert-play, step-2*play ]
-            ] );
-        }
-        children();
-    };
+module ZigZag( zig=10, zag=10, apart=10, minX=-200, maxX=200, minY=-200, maxY=200, minZ=-200, maxZ=200, play=.1, y=[] ) {
+    LeftRight( apart, minX, maxX, minY, maxY, minZ, maxZ, y=y, play=play ) {
+        children(0);
 
-    translate( [ -apart, 0, 0 ] )
-    Left( step=step, insert=insert, height=height, play=play, max=max ) {
-        linear_extrude( height=height ) {
-            polygon( points=[
-                    [ insert+play, 0 ],
-                    [ 0, (step+2*play)*ratio ],
-                    [ 0, (step+2*play)*(1-ratio) ],
-                    [ insert+play, step+2*play ]
-            ] );
-        }
-        linear_extrude( height=height ) {
-            polygon( points=[
-                    [ 0, 0 ],
-                    [ insert-play, (step-2*play)*ratio ],
-                    [ insert-play, (step-2*play)*(1-ratio) ],
-                    [ 0, step-2*play ]
-            ] );
-        }
-        children();
-    }
+        polygon( points=[
+                [ 0, -zag/2 ],
+                [ zig, 0 ],
+                [ 0, zag/2 ],
+                [ 0, 0 ]
+        ] );
+    };
 };
