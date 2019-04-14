@@ -1,4 +1,4 @@
-<div style="float: right; margin-left: 30px"><img src="examples/surface-example.png?raw=true" alt="example"></div>
+<div style="float: right; margin-left: 30px"><img src="examples/surface-example.png" alt="example"></div>
 
 # The problem
 
