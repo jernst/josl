@@ -1,4 +1,4 @@
-module LeftRight( apart, minX, maxX, minY, maxY, minZ, maxZ, y, play ) {
+module LeftRight( apart=10, minX=-200, maxX=200, minY=-200, maxY=200, minZ=-200, maxZ=200, play=.1, y=[] ) {
     yy = len(y) == 0 ? [ minY : ( maxY - minY ) / 10 : maxY ] : y;
 
     translate( [ apart/2, 0, 0 ] )
