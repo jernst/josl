@@ -1,6 +1,9 @@
 //
 // Cut a simply cube.
 //
+// (C) 2019 Johannes Ernst.
+// License: see package.
+//
 
 use <josl/cuts/comb.scad>
 use <josl/cuts/puzzle.scad>

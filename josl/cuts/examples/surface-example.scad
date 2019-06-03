@@ -5,6 +5,9 @@
 //     python3 surface.py > surface.dat
 // (depending on your operating system)
 //
+// (C) 2019 Johannes Ernst.
+// License: see package.
+//
 
 use <josl/cuts/comb.scad>
 use <josl/cuts/puzzle.scad>

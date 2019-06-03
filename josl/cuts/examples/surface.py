@@ -1,6 +1,10 @@
 #!/usr/bin/python
 #
 # Generate a simple surface file
+#
+# (C) 2019 Johannes Ernst.
+# License: see package.
+#
 
 from math import sin, exp
 

@@ -1,6 +1,9 @@
 //
 // Cut a cube with a comb that has rounded corners.
 //
+// (C) 2019 Johannes Ernst.
+// License: see package.
+//
 
 use <josl/cuts/leftright.scad>
 
