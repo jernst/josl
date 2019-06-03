@@ -1,4 +1,4 @@
-# About JOSL =
+# About JOSL
 
 Organizing what you have already is half the work, and so it's time for me to put generally-useful
 OpenSCAD models into a library for easy reuse. So I proudly present: JOSL, Johannes' 
