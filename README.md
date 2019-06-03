@@ -1,4 +1,4 @@
-= About JOSL =
+# About JOSL =
 
 Organizing what you have already is half the work, and so it's time for me to put generally-useful
 OpenSCAD models into a library for easy reuse. So I proudly present: JOSL, Johannes' 
@@ -9,7 +9,7 @@ So far, it knows how to:
 * [create Bezier paths](josl/bezier/)
 
 To use:
-#. ``git clone https://github.com/jernst/josl.git``
-#. set your ``OPENSCADPATH`` environment variable to contain the checked-out directory
-#. and use the models with ``use <josl/xxx>`` in your OpenSCAD models.
+1. ``git clone https://github.com/jernst/josl.git``
+1. set your ``OPENSCADPATH`` environment variable to contain the checked-out directory
+1. and use the models with ``use <josl/xxx>`` in your OpenSCAD models.
 
