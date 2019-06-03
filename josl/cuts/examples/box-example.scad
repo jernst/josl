@@ -2,9 +2,9 @@
 // Cut a simply cube.
 //
 
-use <../cuts/comb.scad>
-use <../cuts/puzzle.scad>
-use <../cuts/zigzag.scad>
+use <josl/cuts/comb.scad>
+use <josl/cuts/puzzle.scad>
+use <josl/cuts/zigzag.scad>
 
 module MyPart() {
     translate( [ -50, 0, 0 ] ) {

@@ -2,7 +2,7 @@
 // Cut a cube with a comb that has rounded corners.
 //
 
-use <../cuts/leftright.scad>
+use <josl/cuts/leftright.scad>
 
 module MyPart() {
     translate( [ -50, 0, 0 ] ) {

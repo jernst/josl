@@ -6,9 +6,9 @@
 // (depending on your operating system)
 //
 
-use <../cuts/comb.scad>
-use <../cuts/puzzle.scad>
-use <../cuts/zigzag.scad>
+use <josl/cuts/comb.scad>
+use <josl/cuts/puzzle.scad>
+use <josl/cuts/zigzag.scad>
 
 // Here's the part
 module MyPart() {
