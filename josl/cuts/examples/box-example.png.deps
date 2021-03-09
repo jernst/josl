@@ -1,6 +1,0 @@
-box-example.png: \
-	/home/jernst/git/github.com/jernst/josl/josl/cuts/leftright.scad \
-	/home/jernst/git/github.com/jernst/josl/josl/cuts/zigzag.scad \
-	/home/jernst/git/github.com/jernst/josl/josl/cuts/puzzle.scad \
-	/home/jernst/git/github.com/jernst/josl/josl/cuts/comb.scad \
-	box-example.scad

@@ -1,5 +1,0 @@
-hello-josl.stl: \
-	/home/jernst/git/github.com/jernst/josl/josl/dotletter/dotletter.scad \
-	/home/jernst/git/github.com/jernst/josl/josl/dotletter/dotfont.scad \
-	/home/jernst/git/github.com/jernst/josl/josl/dotletter/dotline.scad \
-	hello-josl.scad
